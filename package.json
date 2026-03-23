@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Minimal single-page app with Playwright checks and a local start script",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server . -p 3000 -c-1",
+    "test:e2e": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "http-server": "^14.1.1",
+    "playwright": "^1.58.2"
+  }
+}

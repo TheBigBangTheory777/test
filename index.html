@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перемножение чисел</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #f5f7ff, #dfe7ff);
+      }
+
+      .card {
+        width: min(92vw, 460px);
+        padding: 32px;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 20px 45px rgba(57, 84, 163, 0.18);
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 2rem;
+        text-align: center;
+        color: #24305e;
+      }
+
+      .description {
+        margin: 0 0 24px;
+        text-align: center;
+        color: #51607f;
+        line-height: 1.5;
+      }
+
+      .fields {
+        display: grid;
+        gap: 14px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        font-weight: 600;
+        color: #24305e;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #cad5ff;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-size: 1rem;
+      }
+
+      input:focus {
+        outline: 2px solid #8ea2ff;
+        border-color: #8ea2ff;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 20px;
+        border: 0;
+        border-radius: 12px;
+        padding: 14px 24px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: #4f6df5;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba(79, 109, 245, 0.28);
+      }
+
+      #result {
+        min-height: 1.5em;
+        margin: 20px 0 0;
+        text-align: center;
+        font-size: 1.15rem;
+        color: #1c2a57;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Перемножение чисел</h1>
+      <p class="description">
+        Введите несколько чисел и нажмите кнопку, чтобы увидеть результат их
+        перемножения.
+      </p>
+
+      <div class="fields">
+        <label for="number-1">
+          Первое число
+          <input id="number-1" type="number" value="2" />
+        </label>
+
+        <label for="number-2">
+          Второе число
+          <input id="number-2" type="number" value="3" />
+        </label>
+
+        <label for="number-3">
+          Третье число
+          <input id="number-3" type="number" value="4" />
+        </label>
+      </div>
+
+      <button id="multiply-button" type="button">Перемножить</button>
+      <p id="result" aria-live="polite"></p>
+    </main>
+
+    <script>
+      const inputs = [
+        document.getElementById('number-1'),
+        document.getElementById('number-2'),
+        document.getElementById('number-3'),
+      ];
+      const multiplyButton = document.getElementById('multiply-button');
+      const result = document.getElementById('result');
+
+      multiplyButton.addEventListener('click', () => {
+        const product = inputs.reduce((accumulator, input) => {
+          return accumulator * Number(input.value || 0);
+        }, 1);
+
+        result.textContent = `Результат: ${product}`;
+      });
+    </script>
+  </body>
+</html>
