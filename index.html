@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Привет, мир</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #f5f7ff, #dfe7ff);
+      }
+
+      .card {
+        width: min(90vw, 420px);
+        padding: 32px;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 20px 45px rgba(57, 84, 163, 0.18);
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 2rem;
+        color: #24305e;
+      }
+
+      button {
+        border: 0;
+        border-radius: 12px;
+        padding: 14px 24px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: #4f6df5;
+        cursor: pointer;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px rgba(79, 109, 245, 0.28);
+      }
+
+      #message {
+        min-height: 1.5em;
+        margin: 20px 0 0;
+        font-size: 1.1rem;
+        color: #1c2a57;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Одностраничное приложение</h1>
+      <button id="show-message" type="button">Показать сообщение</button>
+      <p id="message" aria-live="polite"></p>
+    </main>
+
+    <script>
+      const button = document.getElementById('show-message');
+      const message = document.getElementById('message');
+
+      button.addEventListener('click', () => {
+        message.textContent = 'привет, мир';
+      });
+    </script>
+  </body>
+</html>
